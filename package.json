@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/jasmine": "^2.5.53",
+    "karma": "^1.7.0",
+    "lerna": "^2.0.0",
+    "webpack": "^3.3.0"
+  }
+}
