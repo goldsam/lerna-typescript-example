@@ -1,3 +1,3 @@
-import { add } from '@syngine/child';
+import { App } from './src/index';
 
-console.log(`1 + 2 = ${add(1, 2)}`);
+new App().run();
