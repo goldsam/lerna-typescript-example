@@ -1,19 +1,12 @@
 const path = require('path');
-
-const pkg = process.env.TARGET_PACKAGE;
-
-if (!pkg) {
-  throw new Error('Plase specify a package name using the TARGET_PACKAGE environment variable.');
-}
-
-const pkgPath = path.join(__dirname, '../packages', pkg);
+const config = require ('./config');
 
 module.exports = {
   watch: false,
-  context: pkgPath,
+  context: config.path,
   devtool: "source-map",
   output: {
-    path: path.join(pkgPath, 'dist'),
+    path: path.join(config.path, 'dist'),
     filename: "index.js",
     libraryTarget: "umd"
   },

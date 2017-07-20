@@ -5,6 +5,7 @@
   "scripts": {
     "build": "cross-env TARGET_PACKAGE=child webpack --config ../../conf/webpack.config.js",
     "test": "cross-env TARGET_PACKAGE=child karma start ../../conf/karma.conf.js",
+    "clean": "rimraf dist report docs",
     "docs": "typedoc --out ./docs ."
   },
   "dependencies": {
@@ -12,6 +13,7 @@
     "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
+    "rimraf": "^2.6.1",
     "typedoc": "^0.7.1"
   }
 }

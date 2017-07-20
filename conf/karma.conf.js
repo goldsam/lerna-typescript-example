@@ -1,26 +1,16 @@
 const path = require("path");
 const karma = require('karma');
-
+const config = require ('./config');
 const webpackKarmaConfig = require("./webpack-karma.config");
-
-const pkg = process.env.TARGET_PACKAGE;
-
-if (!pkg) {
-  throw new Error('Plase specify a package name using the TARGET_PACKAGE environment variable.');
-}
-
-const pkgPath = path.join(__dirname, '../packages', pkg);
 
 const watchMode = false;
 
-// const modulePath = path.join(config.modulesBaseDir, moduleName);
-const coverageReportPath = path.join(pkgPath, 'report/coverage');
-
+const coverageReportPath = path.join(config.path, 'report/coverage');
 
 module.exports = (config) => {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: pkgPath,
+    basePath: packagePath,
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -34,9 +24,9 @@ module.exports = (config) => {
 
     // list of files / patterns to load in the browser
     files: [
-      path.join(pkgPath, 'node_modules/core-js/client/shim.js'),
-      path.join(pkgPath, 'node_modules/reflect-metadata/Reflect.js'),
-      path.join(pkgPath, 'node_modules/tslib/tslib.js'),
+      path.join(packagePath, 'node_modules/core-js/client/shim.js'),
+      path.join(packagePath, 'node_modules/reflect-metadata/Reflect.js'),
+      path.join(packagePath, 'node_modules/tslib/tslib.js'),
       {
         pattern: 'test/**/*.spec.ts', watched: watchMode, included: true
       }
