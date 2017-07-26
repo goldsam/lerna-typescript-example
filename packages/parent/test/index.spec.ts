@@ -1,6 +1,7 @@
+import { App } from '../src/index';
 
 describe('index', () => {
  it('should add two number together', () => {
-  expect(8).toBe(8);
+    expect(new App().run()).toBe(3);
  });
 });

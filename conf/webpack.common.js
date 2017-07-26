@@ -3,7 +3,7 @@ const path = require('path');
 const package = process.env.TARGET_PACKAGE;
 
 if (!package) {
-  throw new Error('Plase specify a package name using the TARGET_PACKAGE environment variable.');
+  throw new Error('Please specify a package name using the TARGET_PACKAGE environment variable.');
 }
 
 const packagePath = path.join(__dirname, '../packages', package);

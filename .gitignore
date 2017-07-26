@@ -3,3 +3,4 @@
 **/report
 **/docs
 *.log
+.vscode

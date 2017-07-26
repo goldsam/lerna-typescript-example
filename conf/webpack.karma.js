@@ -11,6 +11,9 @@ module.exports = webpackMerge(webpackCommonConfig, {
         test: /\.(ts|js)$/,
         loader: 'istanbul-instrumenter-loader',
         exclude: [
+          function(file) {
+            return file.indexOf(webpackCommonConfig.context) != 0;
+          },
           'node_modules',
           /\.spec\.ts$/
         ]

@@ -17,6 +17,7 @@ module.exports = (config) => {
       'jasmine'
     ],
 
+    // prints browser console logging to the terminal
     client: {
       captureConsole: true
     },
@@ -62,7 +63,7 @@ module.exports = (config) => {
     // Coverage reports config.
     coverageIstanbulReporter: {
       reports: ['html', 'text-summary'],
-      dir: path.join(coverageReportPath, 'html'),
+      dir: coverageReportPath,
     },
 
     // web server port
