@@ -1,12 +1,20 @@
 const path = require('path');
-const config = require ('./config');
+
+const package = process.env.TARGET_PACKAGE;
+
+if (!package) {
+  throw new Error('Plase specify a package name using the TARGET_PACKAGE environment variable.');
+}
+
+const packagePath = path.join(__dirname, '../packages', package);
 
 module.exports = {
   watch: false,
-  context: config.path,
+  context: packagePath,
+  entry: "./index.ts",
   devtool: "source-map",
   output: {
-    path: path.join(config.path, 'dist'),
+    path: path.join(packagePath, 'dist'),
     filename: "index.js",
     libraryTarget: "umd"
   },

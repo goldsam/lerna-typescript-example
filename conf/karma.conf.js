@@ -1,11 +1,10 @@
-const path = require("path");
+const path = require('path');
 const karma = require('karma');
-const config = require ('./config');
-const webpackKarmaConfig = require("./webpack-karma.config");
+const webpackKarmaConfig = require('./webpack.karma');
 
+const packagePath = webpackKarmaConfig.context;
+const coverageReportPath = path.join(packagePath, 'report/coverage');
 const watchMode = false;
-
-const coverageReportPath = path.join(config.path, 'report/coverage');
 
 module.exports = (config) => {
   config.set({
@@ -15,7 +14,7 @@ module.exports = (config) => {
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
-      "jasmine"
+      'jasmine'
     ],
 
     client: {
@@ -53,9 +52,12 @@ module.exports = (config) => {
     webpackServer: { noInfo: true },
 
     // test results reporter to use
-    // possible values: "dots", "progress"
+    // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ["progress", "coverage-istanbul"],
+    reporters: [
+      'progress', 
+      'coverage-istanbul'
+    ],
 
     // Coverage reports config.
     coverageIstanbulReporter: {
@@ -78,16 +80,10 @@ module.exports = (config) => {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["PhantomJS"],
-    // browsers: ['ChromeDebugging'],
+    browsers: [
+      'PhantomJS'
+    ],
     
-    // customLaunchers: {
-    //   ChromeDebugging: {
-    //     base: 'Chrome',
-    //     flags: ['--remote-debugging-port=9333']
-    //   }
-    // },
-
     browserNoActivityTimeout: 100000,
     
     // Continuous Integration mode

@@ -1,5 +1,7 @@
-const webpackBase = require('./webpack-base.config');
+const webpackMerge = require('webpack-merge');
 
-module.exports = Object.assign({}, webpackBase, {
-  entry: "./index.ts",
+const webpackCommonConfig = require('./webpack.common');
+
+module.exports = webpackMerge(webpackCommonConfig, {
+  
 });
